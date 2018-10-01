@@ -41,8 +41,23 @@ const renderTodos = (todos, filters) => {
 
 // Get the DOM elements for an individual todo
 const generateTodoDOM = todo => {
-  const todoEl = document.createElement("p");
-  todoEl.textContent = todo.text;
+  const todoEl = document.createElement("div");
+
+  // Set up checkbox for todo
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  todoEl.appendChild(checkbox);
+
+  // Set up todo text
+  const textEl = document.createElement('span');
+  textEl.textContent = todo.text;
+  todoEl.appendChild(textEl);
+
+  // Set up Remove button
+  const button = document.createElement('button');
+  button.textContent = 'X';
+  todoEl.appendChild(button);
+
   return todoEl;
 };
 
