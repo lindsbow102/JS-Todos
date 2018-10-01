@@ -15,7 +15,11 @@ document.querySelector("#filter-todos").addEventListener("input", e => {
 document.querySelector("#add-todo").addEventListener("submit", e => {
   e.preventDefault();
   const newTodo = e.target.elements.addTodo.value;
-  todos.push({ text: newTodo, completed: false });
+  todos.push({ 
+    id: uuidv4(),
+    text: newTodo, 
+    completed: false
+ });
   saveTodos(todos);
   renderTodos(todos, filters);
   e.target.elements.addTodo.value = '';
